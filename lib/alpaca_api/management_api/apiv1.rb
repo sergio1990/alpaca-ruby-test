@@ -17,4 +17,24 @@ class AlpacaManagementAPIv1 < Grape::API
       'ServerTransactionID' => 1
     }
   end
+
+
+  params do
+    optional :ClientID, type: Integer, allow_blank: false
+    optional :ClientTransactionID, type: Integer, allow_blank: false
+  end
+  get :configureddevices do
+    {
+      'Value' => [
+        {
+          'DeviceName' => 'SG Focuser',
+          'DeviceType' => 'Focuser',
+          'DeviceNumber' => 0,
+          'UniqueID' => '37EB4512-DE9D-4AD0-BB9A-B512D2201324'
+        }
+      ],
+      'ClientTransactionID' => params[:ClientTransactionID],
+      'ServerTransactionID' => 1
+    }
+  end
 end
