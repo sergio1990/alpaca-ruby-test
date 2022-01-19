@@ -1,6 +1,6 @@
 require "grape"
-require_relative "./alpaca_management_api.rb"
-require_relative "./alpaca_device_api.rb"
+require_relative "./management_api/alpaca_management_api.rb"
+require_relative "./device_api/alpaca_device_api.rb"
 
 class AlpacaAPI < Grape::API
   format :json

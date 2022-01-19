@@ -1,3 +1,3 @@
-require_relative "./alpaca_api"
+require_relative "./lib/alpaca_api/alpaca_api.rb"
 
 run AlpacaAPI
