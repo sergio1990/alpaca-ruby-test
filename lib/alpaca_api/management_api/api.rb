@@ -9,9 +9,10 @@ class AlpacaManagementAPI < Grape::API
     optional :ClientTransactionID, type: Integer, allow_blank: false
   end
   get :apiversions do
+    puts params
     {
-      'Value' => [1],
-      'ClientTransactionID' => params[:ClientTransactionID],
+      'Value' => [1, 2, 3, 4, 5, 6],
+      'ClientTransactionID' => params[:ClientTransactionID] || 0,
       'ServerTransactionID' => 1
     }
   end
