@@ -31,8 +31,14 @@ module AscomDevices
     attr_reader :name
     attr_reader :supportedactions
 
+    attr_reader :type
+    attr_reader :uuid
+
     def initialize(meta_info:)
       @meta_info = meta_info
+      @name = meta_info.name
+      @type = meta_info.type
+      @uuid = meta_info.uuid
     end
 
     def set_action(action:, parameters:)

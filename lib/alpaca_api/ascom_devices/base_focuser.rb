@@ -12,6 +12,16 @@ module AscomDevices
     attr_reader :tempcompavailable
     attr_reader :temperature
 
+    def initialize(name:, uuid:)
+      super(
+        meta_info: MetaInfo.new(
+          name: name,
+          type: ::AscomDevices::Type::FOCUSER,
+          uuid: uuid
+        )
+      )
+    end
+
     def set_tempcomp(tempcomp:)
       raise NotImplementedError
     end

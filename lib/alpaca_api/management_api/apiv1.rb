@@ -1,4 +1,5 @@
 require 'grape'
+require_relative '../../sg_focuser.rb'
 
 class AlpacaManagementAPIv1 < Grape::API
   params do
@@ -24,13 +25,14 @@ class AlpacaManagementAPIv1 < Grape::API
     optional :ClientTransactionID, type: Integer, allow_blank: false
   end
   get :configureddevices do
+    sg_focuser = SGFocuser.new
     {
       'Value' => [
         {
-          'DeviceName' => 'SG Focuser',
-          'DeviceType' => 'Focuser',
+          'DeviceName' => sg_focuser.name,
+          'DeviceType' => sg_focuser.type,
           'DeviceNumber' => 0,
-          'UniqueID' => '37EB4512-DE9D-4AD0-BB9A-B512D2201324'
+          'UniqueID' => sg_focuser.uuid
         }
       ],
       'ClientTransactionID' => params[:ClientTransactionID] || 0,
