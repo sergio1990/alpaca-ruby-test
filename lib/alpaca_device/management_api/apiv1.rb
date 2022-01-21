@@ -25,16 +25,17 @@ class AlpacaManagementAPIv1 < Grape::API
     optional :ClientTransactionID, type: Integer, allow_blank: false
   end
   get :configureddevices do
-    sg_focuser = SGFocuser.new
+    configured_devices = AlpacaDevice.config.devices_data_source.configured_devices
+    devices_api_output = configured_devices.map do |configured_device|
+      {
+        'DeviceName' => configured_device.name,
+        'DeviceType' => configured_device.type,
+        'DeviceNumber' => configured_device.number,
+        'UniqueID' => configured_device.uuid
+      }
+    end
     {
-      'Value' => [
-        {
-          'DeviceName' => sg_focuser.name,
-          'DeviceType' => sg_focuser.type,
-          'DeviceNumber' => 0,
-          'UniqueID' => sg_focuser.uuid
-        }
-      ],
+      'Value' => devices_api_output,
       'ClientTransactionID' => params[:ClientTransactionID] || 0,
       'ServerTransactionID' => 1
     }

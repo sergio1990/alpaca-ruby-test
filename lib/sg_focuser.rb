@@ -1,4 +1,4 @@
-require_relative './alpaca_api/ascom_devices/base_focuser.rb'
+require_relative './alpaca_device/ascom_devices/base_focuser.rb'
 
 class SGFocuser < ::AscomDevices::BaseFocuser
   def initialize
