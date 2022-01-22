@@ -1,5 +1,5 @@
 task :environment do
-  require File.expand_path('lib/alpaca_api/alpaca_api.rb', File.dirname(__FILE__))
+  require File.expand_path('lib/alpaca_device/alpaca_api.rb', File.dirname(__FILE__))
 end
 
 desc "Print out routes"
