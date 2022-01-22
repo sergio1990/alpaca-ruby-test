@@ -36,13 +36,19 @@ documentation](https://github.com/ASCOMInitiative/ASCOMRemote/blob/a2d60c4cdb87f
 ```
 3. Go to Windows and use ASCOM Diagnostics app, for instance. There choose the
    `Choose device -> Choose and Connect to Device`
+![](imgs/step_1.png)
 4. In the opened window choose `Focuser` and click on `Choose`
+![](imgs/step_2.png)
 5. Finally, the `ASCOM Focuser Chooser` window should open
 6. Enable Alpaca discovery under the `Alpaca` menu
+![](imgs/step_3.png)
 7. The `SG Focuser` device should be discovered
+![](imgs/step_4.png)
 8. Select it and click `OK`
+![](imgs/step_5.png)
 9. The ASCOM platform will create a COM wrapper for the `SG Focuser` device, so
    that we can use it in ASCOM COM based clients
+![](imgs/step_6.png)
 
 That's it! Please, be aware that no device is implemented here - the `SG
 Focuser` can be discovered, but nothing more.
